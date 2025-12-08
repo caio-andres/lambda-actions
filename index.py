@@ -7,10 +7,10 @@ client = boto3.client("s3")
 def lambda_handler(event, context):
     record = event["Records"][0]
 
-    Bucket = record["s3"]["bucket"]["name"]
-    Key = record["s3"]["object"]["key"]
+    bucket = record["s3"]["bucket"]["name"]
+    key = record["s3"]["object"]["key"]
 
-    object_result = client.get_object(Bucket, Key)
+    object_result = client.get_object(Bucket=bucket, Key=key)
 
     mega_byte = 1024 * 1024
 
