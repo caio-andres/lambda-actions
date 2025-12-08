@@ -14,7 +14,7 @@ def lambda_handler(event, context):
 
     mega_byte = 1024 * 1024
 
-    if object_result.ContentLength > 1 * mega_byte:
+    if object_result["ContentLength"] > 1 * mega_byte:
         log("Object much big.")
         return "Object much big."
 
