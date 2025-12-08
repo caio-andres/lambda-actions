@@ -5,10 +5,10 @@ client = boto3.client("s3")
 
 
 def lambda_handler(event, context):
-    record = event.Records[0]
+    record = event["Records"][0]
 
-    Bucket = record.s3.bucket.name
-    Key = record.s3.object.key
+    Bucket = record["s3"]["bucket"]["name"]
+    Key = record["s3"]["object"]["key"]
 
     object_result = client.get_object(Bucket, Key)
 
