@@ -4,13 +4,13 @@ import boto3
 client = boto3.client("s3")
 
 
-async def lambda_handler(event, context):
+def lambda_handler(event, context):
     record = event.Records[0]
 
     Bucket = record.s3.bucket.name
     Key = record.s3.object.key
 
-    object_result = await client.get_object(Bucket, Key)
+    object_result = client.get_object(Bucket, Key)
 
     mega_byte = 1024 * 1024
 
